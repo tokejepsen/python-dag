@@ -5,9 +5,6 @@ python:
 install:
   - pip install pytest
 script: pytest
-branches:
-  only:
-    - master
 env:
   global:
     - PYTHONPATH=${TRAVIS_BUILD_DIR}
