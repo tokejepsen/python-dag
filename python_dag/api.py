@@ -1,8 +1,8 @@
 import functools
 import inspect
 
-from component import Component
-from error import UnboundMethodError, UnresolvedArgumentError
+from .component import Component
+from .error import UnboundMethodError, UnresolvedArgumentError
 
 
 def resolve_connections(connections):

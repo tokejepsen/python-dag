@@ -1,6 +1,6 @@
 import inspect
 
-from error import UnboundMethodError, UnresolvedArgumentError
+from .error import UnboundMethodError, UnresolvedArgumentError
 
 
 class UnresolvedArgument(object):
@@ -45,7 +45,7 @@ class Component(object):
 
         # Validate all arguments are resolved.
         arguments = []
-        for key, value in self.arguments.iteritems():
+        for key, value in self.arguments.items():
             if isinstance(value, UnresolvedArgument):
                 raise UnresolvedArgumentError(
                     "Argument \"{0}\" could not be resolved on Component "
@@ -57,7 +57,7 @@ class Component(object):
         # Get default value for keyword arguments unless its a callable.
         # If the keyword argument is callable, then its been resolved.
         keyword_arguments = self.get_keyword_arguments(self.method)
-        for key, value in self.keyword_arguments.iteritems():
+        for key, value in self.keyword_arguments.items():
             if isinstance(value, UnresolvedArgument):
                 self.keyword_arguments[key] = keyword_arguments[key]
             if callable(value):
