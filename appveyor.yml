@@ -1,0 +1,26 @@
+environment:
+
+  PYTHONPATH: "%APPVEYOR_BUILD_FOLDER%"
+
+  matrix:
+
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERSION: "3.6.x"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7.x"
+      PYTHON_ARCH: "64"
+
+build: off
+
+branches:
+  only:
+    - master
+
+install:
+  - SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - pip install pytest
+
+test_script:
+  - "%CMD_IN_ENV% pytest"
